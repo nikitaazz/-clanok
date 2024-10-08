@@ -1,12 +1,17 @@
 % Metódy inžinierskej práce
 
-\documentclass[14pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage[numbers]{natbib}
 \usepackage{url}
 \usepackage{tocloft}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\pgfplotsset{compat=1.18}
+
+
 
 
 
@@ -50,9 +55,22 @@ Today, we will explore how recommendation systems work on the biggest music plat
 \item \textbf{Deezer}, a French leader, has gained popularity in Europe thanks to localized recommendations and unique algorithms that adapt music selections to each user as much as possible.
 \end{itemize}
 We have gathered information from podcasts and interviews with company executives and developers to better understand how these systems are built and what technologies power them. Ready to embark on a journey into the world of music technology? Let's go!
-Zov
 
 \section{Algorithms Behind the Recommendation System of Yandex Music}
+
+\begin{tikzpicture}
+    \pie[
+        text=legend, % Легенда
+        radius=3, % Радиус диаграммы
+        explode=0.1 % Отделение сегмента
+    ]{
+        15/Category A,
+        30/Category B,
+        45/Category C,
+        10/Category D
+    }
+\end{tikzpicture}
+
 
 \section{The Role of Artificial Intelligence}
 
