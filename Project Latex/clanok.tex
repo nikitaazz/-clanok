@@ -9,6 +9,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{pgfplots}
 \usepackage{pgf-pie}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric}
 \pgfplotsset{compat=1.18}
 
 
@@ -72,7 +73,63 @@ Today, we will explore how recommendation systems work on the biggest music plat
 
 We have gathered information from podcasts and interviews with company executives and developers to better understand how these systems are built and what technologies power them. Ready to embark on a journey into the world of music technology? Let's go!
 
-\section{Algorithms Behind the Recommendation System of Yandex Music}
+\section{Algorithms Behind the Recommendation Systems}
+Spotify, with its vast library of over 82 million songs and 406 million subscribers, has transformed how listeners discover and engage with music. To tackle the overwhelming choices presented to users, Spotify employs sophisticated machine learning (ML) algorithms that not only recommend music but also enhance the overall listening experience. Here, we delve into the core algorithms used by Spotify, highlighting their functionalities and impacts.
+\begin{itemize}
+ \item \textbf{Collaborative Filtering (CF)}
+Collaborative filtering is the cornerstone of Spotify's recommendation system. This technique relies on analyzing the collective behavior and preferences of users to predict what an individual might enjoy based on the actions of others with similar tastes. The sheer volume of playlists created by users—over 4 billion—provides a rich dataset for Spotify to extract insights.
+
+User Clustering: Spotify identifies patterns in listening habits across various user clusters. For instance, if User A and User B frequently listen to similar artists, collaborative filtering allows Spotify to recommend new tracks to each user based on shared playlist behaviors.
+
+Group Playlists: Spotify's acquisition of the music discovery company Tungio has enabled them to leverage both human intelligence and statistical methods to curate group playlists. These playlists are fine-tuned for performance, leading to increased user satisfaction.
+
+Personal Playlist Personalization: By analyzing user engagement with personal playlists, Spotify can offer tailored recommendations. If User A adds a song by Bon Iver, the algorithm increases the likelihood of recommending Bon Iver tracks to User B, who has similar listening habits.
+
+ \item \textbf{Natural Language Processing (NLP)}
+Natural Language Processing allows Spotify to understand and categorize music based on textual data available on the internet. This includes song descriptions, reviews, and social media commentary. By employing NLP, Spotify can enhance its recommendation engine in the following ways:
+
+Keyword Extraction: The algorithm scans and categorizes songs by extracting keywords and assigning them weights based on emotional context. This means that songs can be classified by the emotions they evoke—such as happiness, sadness, or nostalgia—making it easier for the platform to group similar tracks together.
+
+Enhanced Playlist Creation: NLP helps Spotify’s algorithms determine which songs can coexist in a playlist based on the language used to describe them. This not only improves the accuracy of recommendations but also allows for the creation of emotionally resonant playlists.
+
+ \item \textbf{Reinforcement Learning (RL)}
+Reinforcement learning takes Spotify’s recommendation system to the next level by adapting based on user interactions. This dynamic approach allows Spotify to learn from user behavior in real time:
+
+Trial and Error Learning: RL algorithms observe how users engage with newly recommended songs. If a user listens to a song repeatedly, it signals to the algorithm that the recommendation was successful. Conversely, if the user skips the song, it indicates a mismatch with their preferences.
+
+Maximizing Long-Term Engagement: The goal of RL is to optimize long-term user satisfaction. As Spotify's Vice President of Personalization, Oskar Stål, explains, RL aims to push users towards a diverse and fulfilling listening experience rather than a monotonous one. This encourages exploration of new genres and artists, ultimately broadening the user's musical palate.
+
+Personalized Home Pages: By integrating RL with collaborative filtering and NLP, Spotify can serve up a customized home page for each user that reflects their evolving tastes and encourages them to explore beyond their typical listening habits.
+
+Below, you can see the hierarchy of algorithms used by Spotify, ranging from basic to advanced methods.
+\end{itemize}
+
+
+\begin{center}
+    \begin{tikzpicture}[
+        level 1/.style={sibling distance=40mm, level distance=20mm},
+        level 2/.style={sibling distance=50mm, level distance=20mm},
+        every node/.style={draw, rectangle, align=center, minimum height=8mm, minimum width=25mm, text width=25mm},
+        decision/.style={diamond, aspect=2, draw, align=center, minimum width=30mm, minimum height=10mm, text width=30mm},
+        edge from parent/.style={draw, -{Stealth[]}},
+        sibling distance=30mm
+        ]
+        
+        \node {Spotify}
+        child {node [decision] {User Reactions}
+            child {node {Collaborative Filtering}}
+            child {node [decision] {Text Bond}
+                child {node {Natural Language Processing}}
+                child {node [decision] {Machine Learning} 
+                    child {node {Reinforcement Learning}} 
+                }
+            }
+        }
+        child {node {Random music}};
+    \end{tikzpicture}
+\end{center}
+
+
 
 \section{The Role of Artificial Intelligence}
 
