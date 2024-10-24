@@ -9,14 +9,15 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{pgfplots}
 \usepackage{pgf-pie}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern} 
+\usepackage{amsmath}
+\usepackage{array}
+
+
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric}
 \pgfplotsset{compat=1.18}
 
-
-
-
-
-% Добавление точек от заголовка к номеру страницы
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
 
@@ -25,7 +26,7 @@
 \author{Mykyta Nosenko}
 \begin{document}
 \maketitle
-\section*{Abstarct}
+\section*{Abstract}
 
 Imagine you’re walking through a park, and everywhere you look, people are wearing headphones. Everyday, you can see hundreds or even thousands of individuals rapt in their own worlds of sound. What are they listening to? Some may be tuned into podcasts, audiobooks, or radio, but most are likely enjoying music. In today’s digital age, powerful streaming services like Spotify make accessing our favorite songs effortless. In this article, we will dive into how their recommendation systems work.
 
@@ -43,7 +44,7 @@ How do these systems understand our preferences? Who develops these complex tech
 
 Greetings to everyone! I hope your mood is great and everything is going according to plan. Before we begin, try to clear your mind of distractions and fully immerse yourself in the topic. How do development teams within giants like Spotify, Yandex Music, Apple Music, and Deezer work — from solving complex tasks to team-building activities? Is machine learning involved? On what basis are recommendations made, and how do music services select the perfect playlists for us? So many questions, and there's so much to discover in this article. Let's dive in!
 
-Modern music streaming services offer users not only access to extensive music catalogs but also ready-made playlists with personalized recommendations. Thanks to systems based on artificial intelligence and machine learning, the aforementioned platforms provide tracks that perfectly match each user's preferences. These systems play a crucial role in discovering new music. According to data from 2020, around 62\% of users identified Spotify and YouTube as the main sources for finding new tracks and artists.\citep{href}.
+Modern music streaming services offer users not only access to extensive music catalogs but also ready-made playlists with personalized recommendations. Thanks to systems based on artificial intelligence and machine learning, the aforementioned platforms provide tracks that perfectly match each user's preferences. These systems play a crucial role in discovering new music. According to data from 2020, around 60\% (Refer to the diagram bellow) of users identified Spotify and YouTube as the main sources for finding new tracks and artists.Further details are provided in the diagram below. \citep{href}.
 
 Today, we will explore how recommendation systems work on the biggest music platforms — Yandex Music, Spotify, Apple Music, and Deezer. Each of them is unique and holds a leading position on its continent.
 
@@ -134,7 +135,53 @@ Below, you can see the hierarchy of algorithms used by Spotify, ranging from bas
 
 \section{The Role of Artificial Intelligence}
 
-\section{The Future of Recommendation Systems}
+\section{An Inside Look: Interview with the Head of Yandex's Recommendation Systems, Danil Burlakov}
+
+    We analyzed an interview with Danil Burlakov, where he explained how the recommendation system of Yandex Music is structured and what technologies are at its core. Our guest has been working on the system for about five years, during which time it went through several leadership changes before Danil himself became the head of the project. A graduate of the Faculty of Mechanics and Mathematics at Moscow State University, Danil now leads the development of recommendation systems for Yandex media services, including Yandex Music.
+
+\subsection{Programming Language Choice}
+
+One of the key points in the interview was the explanation of why Java is used for the recommendation systems at Yandex Music. The recommendation system processes massive data arrays, such as matrices of 10,000 by 1,000, where each cell contains information about user plays, likes, and preferences. Java ensures high performance and efficient handling of multithreaded tasks, which is critical for real-time request processing.
+
+While Python is popular in machine learning, it is less efficient in handling high loads and large numbers of threads, making it less suitable for tasks that involve processing such large data arrays. For particularly resource-intensive calculations, such as gradient boosting, C++ is used to achieve maximum speed when performing complex operations.
+
+\subsection{Collaborative Filtering and Vector Models}
+
+Collaborative filtering is the primary mechanism behind Yandex Music’s recommendation system. Both users and tracks are represented as vectors. The vector $\vec{A}$ for a user is formed based on their activity, including likes, skips, plays, and genre preferences. The vector $\vec{B}$ for tracks accounts for factors such as genre, popularity, and other characteristics.
+
+For example, if a user frequently listens to electronic and rock music, their vector will be closer to tracks in those genres. When a new track with similar characteristics appears, it will be positioned near the user’s vector, and the system will suggest it in the playlist.
+
+Matrix factorization is used to improve the efficiency of finding relevant tracks. This reduces the dimensionality of the original "users-tracks" matrix, speeding up the process of identifying hidden preferences.
+
+We also developed our own collaborative filtering model in C, which helps optimize the recommendation process and improve system performance.
+
+\subsection{Offline and Online Playlists}
+
+The recommendation system is divided into offline and online playlists. Offline playlists are formed based on long-term user data and are processed in batches, reducing the system’s load. Online playlists are updated instantly, using the most recent data about user plays, likes, and preferences, allowing the system to reflect changes in the user's music taste almost in real-time.
+
+\subsection{Data Transfer Protocol and Playlist Updates}
+
+Protocol Buffers (Protobuf) is used to transfer data between services, which is more efficient than JSON. Protobuf reduces data size and speeds up processing, which is crucial when handling millions of users. In Yandex Music, playlists are updated every time the app is opened, allowing the system to consider the user’s latest preferences and adapt to time zone changes. If the user doesn't open the app for a long time, the playlist remains the same, but after a week of inactivity, the data becomes outdated, and the playlist will be updated the next time the user logs in.
+
+Thus, the interview with Danil Burlakov provides a clear understanding of how Yandex Music combines technology and algorithms to create accurate, personalized recommendations.
+
+\section{Comperation}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{2,35cm}|>{\raggedright\arraybackslash}p{2,35cm}|>{\raggedright\arraybackslash}p{2,35cm}|>{\raggedright\arraybackslash}p{2,35cm}|>{\raggedright\arraybackslash}p{2,35cm}|}
+    \hline
+        Criterium & Apple Music & Yandex Music & Spotify & Deezer \\ \hline
+        1 Level   & Collaborative Filtering & Collaborative Filtering & Collaborative Filtering & Collaborative Filtering \\ \hline
+        2 Level   & Natural Language Processing & Matrix Factorization & Natural Language Processing & Natural Language Processing \\ \hline
+        3 Level   & Content-Based Filtering & Reinforcement Learning & Reinforcement Learning & Reinforcement Learning \\ \hline
+        4 Level   & Reinforcement Learning & Content-Based Filtering & Audio Feature Analysis & Content-Based Filtering \\ \hline
+    \end{tabular}
+    \caption{Comperation}
+    \label{table1}
+\end{table}
+
+
 
 \section{Conclusion}
 
