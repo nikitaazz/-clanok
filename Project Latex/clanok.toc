@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Recommendation Systems An Overview}{3}{section.1}%
+\contentsline {section}{\numberline {2}Algorithms Behind the Recommendation Systems}{4}{section.2}%
+\contentsline {section}{\numberline {3}The Role of Artificial Intelligence}{6}{section.3}%
+\contentsline {section}{\numberline {4}An Inside Look: Interview with the Head of Yandex's Recommendation Systems, Danil Burlakov}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Programming Language Choice}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Collaborative Filtering and Vector Models}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Offline and Online Playlists}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Data Transfer Protocol and Playlist Updates}{8}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Comperation}{8}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{8}{section.6}%
+\contentsline {section}{\numberline {7}References}{9}{section.7}%
