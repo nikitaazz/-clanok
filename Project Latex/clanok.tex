@@ -16,6 +16,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{booktabs}
+\usepackage{xcolor, colortbl}
 
 \lstset{
     language=C,
@@ -129,7 +131,7 @@ Below, you can see the hierarchy of algorithms used by Spotify, ranging from bas
 
 \end{itemize}
 
-
+\begin{figure}
 \begin{center}
     \begin{tikzpicture}[
         level 1/.style={sibling distance=40mm, level distance=20mm},
@@ -153,7 +155,9 @@ Below, you can see the hierarchy of algorithms used by Spotify, ranging from bas
         child {node {Random music}};
     \end{tikzpicture}
 \end{center}
-
+\caption{Architecture of spotify's recomendation system}
+\label{Schema2}
+\end{figure}
 
 \section{An Inside Look: Interview with the Head of Yandex's Recommendation Systems, Danil Burlakov}
 
@@ -189,14 +193,25 @@ Thus, the interview with Danil Burlakov provides a clear understanding of how Ya
 
 \begin{table}[h!]
     \centering
-    \begin{tabular}{|>{\raggedright\arraybackslash}p{2,35cm}|>{\raggedright\arraybackslash}p{2,35cm}|>{\raggedright\arraybackslash}p{2,35cm}|>{\raggedright\arraybackslash}p{2,35cm}|>{\raggedright\arraybackslash}p{2,35cm}|}
+    \setlength{\arrayrulewidth}{0.3mm}
+    \setlength{\tabcolsep}{8pt}
+    \renewcommand{\arraystretch}{1.2}
+    
+    \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+    \newcommand{\header}[1]{\textbf{\cellcolor[HTML]{D0E5FF}#1}}
+    \arrayrulecolor[HTML]{3A75C4}
+    
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{|L{1.8cm}|L{2.68cm}|L{2.8cm}|L{2.8cm}|L{2.9cm}|}
     \hline
-        Criterium & Apple Music & Yandex Music & Spotify & Deezer \\ \hline
-        1 Level   & Collaborative Filtering & Collaborative Filtering & Collaborative Filtering & Collaborative Filtering \\ \hline
-        2 Level   & Natural Language Processing & Matrix Factorization & Natural Language Processing & Natural Language Processing \\ \hline
-        3 Level   & Content-Based Filtering & Reinforcement Learning & Reinforcement Learning & Reinforcement Learning \\ \hline
-        4 Level   & Reinforcement Learning & Content-Based Filtering & Audio Feature Analysis & Content-Based Filtering \\ \hline
+    \header{Criterium} & \header{Apple Music} & \header{Yandex Music} & \header{Spotify} & \header{Deezer} \\ \hline
+    \textbf{1 Level}   & Collaborative Filtering & Collaborative Filtering & Collaborative Filtering & Collaborative Filtering \\ \hline
+    \textbf{2 Level}   & Natural Language Processing & Matrix Factorization & Natural Language Processing & Natural Language Processing \\ \hline
+    \textbf{3 Level}   & Content-Based Filtering & Reinforcement Learning & Reinforcement Learning & Reinforcement Learning \\ \hline
+    \textbf{4 Level}   & Reinforcement Learning & Content-Based Filtering & Audio Feature Analysis & Content-Based Filtering \\ \hline
     \end{tabular}
+    }
+    
     \caption{Comparison\citep{Rick}}
     \label{table1}
 \end{table}
