@@ -52,9 +52,9 @@
 \maketitle
 \section*{Abstract}
 
-Imagine you’re walking through a park, and everywhere you look, people are wearing headphones. Everyday, you can see hundreds or even thousands of individuals rapt in their own worlds of sound. What are they listening to? Some may be tuned into podcasts, audiobooks, or radio, but most are likely enjoying music. In today’s digital age, powerful streaming services like Spotify make accessing our favorite songs effortless. In this article, we will dive into how their recommendation systems work.
+Imagine you’re walking through a park, and everywhere you look, people are wearing headphones. Daily, you can see hundreds or even thousands of people rapt in their own worlds of sound. What are they listening to? Some may be into podcasts, some into audiobooks or radio, but most are likely enjoying music. In today’s digital age, powerful streaming services like Spotify make accessing our favorite songs effortless. In this article, we will dive into how their recommendation systems work.
 
-We’re about to explore the enormous world of algorithms and artificial intelligence that recommend songs specifically tailored to our tastes. At the heart of Spotify’s recommendation engine are algorithms like collaborative filtering and content-based filtering. For example, collaborative filtering uses matrix factorization to identify hidden user preferences based on listening habits, while content-based filtering employs techniques like TF-IDF to analyze song lyrics and extract significant themes. Additionally, Spotify leverages an AI system called Marlin, which combines these algorithms to enhance user experience and provide personalized music recommendations\citep{href}.
+We’re about to explore the world of algorithms and artificial intelligence, that services use to provide specifically tailored music to our tastes. The main part of Spotify’s recommendation engine are algorithms like collaborative filtering and content-based filtering. For example, collaborative filtering uses matrix factorization to identify hidden user preferences based on listening habits, while content-based filtering employs techniques like TF-IDF to analyze song lyrics and extract significant themes. Additionally, Spotify leverages an AI system called Marlin, which combines these algorithms to enhance user experience and provide personalized music recommendations\citep{href}.
 
 How do these systems understand our preferences? Who develops these complex technologies, and what exactly goes into building them? There are so many questions, and much remains unknown about how AI enhances our music experience, constantly adapting to our moods and listening habits. Let's take a closer look at how it all works.
 
@@ -64,11 +64,9 @@ How do these systems understand our preferences? Who develops these complex tech
 
 \section{Recommendation Systems An Overview}
 
+Greetings to everyone! I hope your mood is great. Before we begin, try to clear your mind of distractions and fully immerse yourself in the topic. We have gathered information from articles,podcasts and interviews with company executives and developers to better understand how these systems are built and what technologies power them.  Let's dive in!
 
-
-Greetings to everyone! I hope your mood is great and everything is going according to plan. Before we begin, try to clear your mind of distractions and fully immerse yourself in the topic. How do development teams within giants like Spotify, Yandex Music, Apple Music, and Deezer work — from solving complex tasks to team-building activities? Is machine learning involved? On what basis are recommendations made, and how do music services select the perfect playlists for us? So many questions, and there's so much to discover in this article. Let's dive in!
-
-Modern music streaming services offer users not only access to extensive music catalogs but also ready-made playlists with personalized recommendations. Thanks to systems based on artificial intelligence and machine learning, the aforementioned platforms provide tracks that perfectly match each user's preferences. These systems play a crucial role in discovering new music. According to data from 2020, around 60\% (Refer to the diagram bellow) of users identified Spotify and YouTube as the main sources for finding new tracks and artists.Further details are provided in the diagram below \citep{href}\citep{Woman}.
+To begin with modern music streaming services offer users not only access to extensive music catalogs but also ready-made playlists with personalized recommendations. Thanks to systems based on artificial intelligence and machine learning, the aforementioned platforms provide tracks that perfectly match each user's preferences. These systems play a crucial role in discovering new music. According to data from 2020, around 60\% (Figure 1) of users identified Spotify and YouTube as the main sources for finding new tracks and artists.Further details are provided in the diagram below \citep{href}\citep{Woman}.
 
 Today, we will explore how recommendation systems work on the biggest music platforms — Yandex Music, Spotify, Apple Music, and Deezer. Each of them is unique and holds a leading position on its continent.
 
@@ -82,6 +80,7 @@ Today, we will explore how recommendation systems work on the biggest music plat
 \item \textbf{Deezer}, a French leader, has gained popularity in Europe thanks to localized recommendations and unique algorithms that adapt music selections to each user as much as possible.
 \end{itemize}
 
+\begin{figure}
 \begin{tikzpicture}
     \pie[
         text=legend, 
@@ -95,9 +94,9 @@ Today, we will explore how recommendation systems work on the biggest music plat
         34/Other
     }
 \end{tikzpicture}
-\citep{Diagramm}
-
-We have gathered information from podcasts and interviews with company executives and developers to better understand how these systems are built and what technologies power them. Ready to embark on a journey into the world of music technology? Let's go!
+\caption{Resourses from which people recieves new tracks\citep{Diagramm}.}
+\label{Schema 1}
+\end{figure}
 
 \section{Algorithms Behind the Recommendation Systems}
 Spotify, with its vast library of over 82 million songs and 406 million subscribers, has transformed how listeners discover and engage with music. To tackle the overwhelming choices presented to users, Spotify employs sophisticated machine learning (ML) algorithms that not only recommend music but also enhance the overall listening experience. Here, we delve into the core algorithms used by Spotify, highlighting their functionalities and impacts\citep{key}.
@@ -125,9 +124,7 @@ Trial and Error Learning: RL algorithms observe how users engage with newly reco
 
 Maximizing Long-Term Engagement: The goal of RL is to optimize long-term user satisfaction. As Spotify's Vice President of Personalization, Oskar Stål, explains, RL aims to push users towards a diverse and fulfilling listening experience rather than a monotonous one. This encourages exploration of new genres and artists, ultimately broadening the user's musical palate\citep{key}.
 
-Personalized Home Pages: By integrating RL with collaborative filtering and NLP, Spotify can serve up a customized home page for each user that reflects their evolving tastes and encourages them to explore beyond their typical listening habits\citep{roma}.
-
-Below, you can see the hierarchy of algorithms used by Spotify, ranging from basic to advanced methods.
+Personalized Home Pages: By integrating RL with collaborative filtering and NLP, Spotify can serve up a customized home page for each user that reflects their evolving tastes and encourages them to explore beyond their typical listening habits\citep{roma} Below you can see a Figure 2 where everything is represented graphically.
 
 \end{itemize}
 
@@ -155,8 +152,8 @@ Below, you can see the hierarchy of algorithms used by Spotify, ranging from bas
         child {node {Random music}};
     \end{tikzpicture}
 \end{center}
-\caption{Architecture of spotify's recomendation system}
-\label{Schema2}
+\caption{Hierarchy of spotify's recomendation system}
+\label{Schema 2}
 \end{figure}
 
 \section{An Inside Look: Interview with the Head of Yandex's Recommendation Systems, Danil Burlakov}
@@ -171,21 +168,22 @@ While Python is popular in machine learning, it is less efficient in handling hi
 
 \subsection{Collaborative Filtering and Vector Models}
 
-Collaborative filtering is the primary mechanism behind Yandex Music’s recommendation system. Both users and tracks are represented as vectors. The vector $\vec{A}$ for a user is formed based on their activity, including likes, skips, plays, and genre preferences. The vector $\vec{B}$ for tracks accounts for factors such as genre, popularity, and other characteristics\citep{Yandex}.
+Collaborative filtering is the primary mechanism behind Yandex Music’s recommendation system. Both users and tracks are represented as vectors. The vector $\vec{A}$ for a user is formed based on their activity, including likes, skips, plays, and genre preferences. Each of activity is evaluated as number and transformed to vector. The vector $\vec{B}$ is based on another people  expirience by the same way \citep{Yandex}. After we will count coeficient of similarity between some vectors. We can advies for user $\vec{A}$ tracks that was liked by user $\vec{B}$.
 
-For example, if a user frequently listens to electronic and rock music, their vector will be closer to tracks in those genres. When a new track with similar characteristics appears, it will be positioned near the user’s vector, and the system will suggest it in the playlist.
+For example, if a user frequently listens to electronic and rock music, the vector will be closer to tracks in those genres. When a simillar ganers appears in another users taste, the system will suggest other preferences of second user to user numder one.
 
 Matrix factorization is used to improve the efficiency of finding relevant tracks. This reduces the dimensionality of the original "users-tracks" matrix, speeding up the process of identifying hidden preferences.
 
-We also developed our own collaborative filtering model in C, which helps optimize the recommendation process and improve system performance (For better understanding we made our model of Colaborative systems, refer to paragraph 5) \footnote{For better understanding, refer to paragraph 5.}.
+I also developed my own collaborative filtering model in C, which helps optimize the recommendation process and improve system performance (For better understanding we made our model of Colaborative systems, refer to paragraph 5) \footnote{For better understanding, refer to paragraph 5.}.
 
 \subsection{Offline and Online Playlists}
 
-The recommendation system is divided into offline and online playlists. Offline playlists are formed based on long-term user data and are processed in batches, reducing the system’s load. Online playlists are updated instantly, using the most recent data about user plays, likes, and preferences, allowing the system to reflect changes in the user's music taste almost in real-time\citep{lel}\citep{lol}.
+The recommendation system is divided into offline and online playlists. Offline playlists are formed based on long-term user data and are processed in batches, reducing the system’s load. Online playlists are updated instantly, using the most recent data about user plays, likes, and preferences, allowing the system to reflect changes in the user's music taste almost in real-time.
+In Yandex Music, daily playlists are updated every time user opens the app, allowing the system to consider the user’s latest preferences. It distributes the load from similtanious to permonent. It figured out the problem of adapting to time zones changes. For example with daily playlist updating, if a person flies from the USA to Europe, he will not recieve playlist in time. In addition, if the user doesn't open the app for a long time, the massive of songs remains the same, but after a week of inactivity, the data becomes outdated, and the playlist will be updated the next time the user logs in.\citep{lel}\citep{lol}.
 
 \subsection{Data Transfer Protocol and Playlist Updates}
 
-Protocol Buffers (Protobuf) is used to transfer data between services, which is more efficient than JSON. Protobuf reduces data size and speeds up processing, which is crucial when handling millions of users. In Yandex Music, playlists are updated every time the app is opened, allowing the system to consider the user’s latest preferences and adapt to time zone changes. If the user doesn't open the app for a long time, the playlist remains the same, but after a week of inactivity, the data becomes outdated, and the playlist will be updated the next time the user logs in.
+Protocol Buffers (Protobuf) is used to transfer data between services, which is more efficient than JSON. Protobuf reduces data size and speeds up processing, which is crucial when handling millions of users. Yandex aimed to make one of the fastest servise in the world.
 
 Thus, the interview with Danil Burlakov provides a clear understanding of how Yandex Music combines technology and algorithms to create accurate, personalized recommendations.
 
