@@ -6,7 +6,7 @@
 \usepackage{tocloft}
 \usepackage{xcolor}
 \usepackage{titlesec}
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,breaklinks=true]{hyperref}
 \usepackage{pgfplots}
 \usepackage{pgf-pie}
 \usepackage[utf8]{inputenc}
@@ -18,7 +18,6 @@
 \usepackage{listings}
 \usepackage{booktabs}
 \usepackage{xcolor, colortbl}
-\usepackage{hyperref}
 \usepackage{listings}
 
 
@@ -129,7 +128,7 @@ NLP helps Spotify’s algorithms figure out which songs can be used in new playl
 
  \item \textbf{Reinforcement Learning (RL)}
 
-Reinforcement learning takes Spotify’s recommendation system to the next level; a clue of it is to reach maximum score while interacting with the user.
+ Reinforcement learning takes Spotify’s recommendation system to the next level; a clue of it is to reach maximum score while interacting with the user.
 
 The great question will be. How it works? At first, Spotify's RL system was made for advising something new, combining with long-time favorite tracks. Tracks that Spotify RL may be completely different from what you are listening to because it analyzes a lot of factors like likes, time of the day, place, your mood by what are you listening to now. Moving on, algorithms observe how users engage with newly recommended songs. If a user listens to a song repeatedly, adds it to playlist, sends it to someone, it signals to the algorithm that the recommendation was successful, and RL will recieve point. Conversely, if the user skips the song, it indicates a mismatch with the user's preferences, and RL will receive a negative amount of points.\citep{Z}
 
@@ -286,7 +285,7 @@ double calculate_coefficient(int* user_ratings, int* song_ratings, int size) {
 
     This formula considers the ratings of all users in the database, weighted by their similarity to the new user.
 
-    \item \textbf{Sorting Recommendations:} We sort tracks by their final ratings, from most to least suitable.In use, this formula is easier than you think \autoref{code2}.
+    \item \textbf{Sorting Recommendations:} We sort tracks by their final ratings, from most to least suitable. In use, this formula is easier than you think \autoref{code2}.
 
 \begin{lstlisting}[label={code2}]
 void sort_recommendations(double* ratings, char recommendations[MAX_SONGS][255], int size) {
@@ -321,6 +320,7 @@ In an interview with Danil Burlakov, we learned about the challenges and future 
 
 Thus, recommendation systems not only simplify the search for music but also actively shape our musical preferences, creating a unique and engaging experience for every listener. In the future, we can expect further refinement of these systems, making them even more accurate and intuitive, while also opening new horizons in the music world.
 
+\sloppy
 \newpage
 \section{References}
 
