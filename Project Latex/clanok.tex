@@ -253,7 +253,7 @@ Based on the information I studied, I created a first-level recommendation syste
     \textbf{Cosine Similarity Formula:} Cosine similarity (the formula above) measures how close the preference vectors of two users are. The closer the value is to 1, the more similar the users’ preferences are \autoref{code1}.
 
 
-\begin{lstlisting}[label={code1}]
+\begin{lstlisting}[label={code1}, caption={caption 1}]
 double calculate_coefficient(int* user_ratings, int* song_ratings, int size) {
     double dot_product = 0.0, length_user = 0.0, length_songs = 0.0;
     int valid_count = 0;
@@ -287,7 +287,7 @@ double calculate_coefficient(int* user_ratings, int* song_ratings, int size) {
 
     \item \textbf{Sorting Recommendations:} We sort tracks by their final ratings, from most to least suitable. In use, this formula is easier than you think \autoref{code2}.
 
-\begin{lstlisting}[label={code2}]
+\begin{lstlisting}[label={code2}, caption={caption 2}]
 void sort_recommendations(double* ratings, char recommendations[MAX_SONGS][255], int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
